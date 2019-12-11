@@ -1,0 +1,56 @@
+# 155. Min Stack
+[view in leetcode](https://leetcode.com/problems/min-stack/)
+
+## Problems Description
+
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+ + push(x) -- Push element x onto stack.
+ + pop() -- Removes the element on top of the stack.
+ + top() -- Get the top element.
+ + getMin() -- Retrieve the minimum element in the stack.
+ 
+### Example:
+
+    MinStack minStack = new MinStack();
+    minStack.push(-2);
+    minStack.push(0);
+    minStack.push(-3);
+    minStack.getMin();   --> Returns -3.
+    minStack.pop();
+    minStack.top();      --> Returns 0.
+    minStack.getMin();   --> Returns -2.
+ 
+## Solution:
+### Solution1: 
+```python
+class MinStack:
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.memo = []
+
+
+    def push(self, x: int) -> None:
+        self.memo.append(x)
+
+    def pop(self) -> None:
+        self.memo.pop()
+
+
+    def top(self) -> int:
+        return self.memo[-1]
+
+    def getMin(self) -> int:
+        return min(self.memo)
+        
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(x)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
+```
